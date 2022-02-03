@@ -6,7 +6,7 @@
                     <v-card-title>Portainer</v-card-title>
                 </v-card>
             </a>
-            <a href="http://192.168.1.37:19999" target="_blank">
+            <a href="http://192.168.1.37:19999#menu_sensors" target="_blank">
                 <v-card class="pa-12 ma-12">
                     <v-card-title>Netdata</v-card-title>
                 </v-card>
