@@ -1,66 +1,30 @@
 <template>
     <v-app>
         <v-main>
-            <!-- <h1 class="white--text text-center my-12">Home sweet home!</h1> -->
-            <div style="height: 100px"></div>
-            <v-row align="center" justify="center">
-                <v-col cols="4" class="ma-12">
-                    <a :href="'http://' + piAdress + ':9000/#!/1/docker/containers'" target="_blank">
-                        <v-card class="pa-6" color="rgb(255, 255, 255, 0.1)">
-                            <v-row align="center" justify="center">
-                                <v-col cols="4">
-                                    <v-img src="./assets/portainer.svg" contain height="50"> </v-img>
-                                </v-col>
-                                <v-col>
-                                    <v-card-title class="white--text">Portainer</v-card-title>
-                                </v-col>
-                            </v-row>
-                        </v-card>
-                    </a>
-                </v-col>
-                <v-col cols="4" class="ma-12">
-                    <a :href="'https://' + piAdress + ':443'" target="_blank">
-                        <v-card class="pa-6" color="rgb(255, 255, 255, 0.1)">
-                            <v-row align="center" justify="center">
-                                <v-col cols="4">
-                                    <v-img src="./assets/nextcloud.svg" contain height="50"> </v-img>
-                                </v-col>
-                                <v-col>
-                                    <v-card-title class="white--text">Nextcloud</v-card-title>
-                                </v-col>
-                            </v-row>
-                        </v-card>
-                    </a>
-                </v-col>
-            </v-row>
-            <v-row align="center" justify="center">
-                <v-col cols="4" class="ma-12">
-                    <a :href="'http://' + piAdress + ':19999'" target="_blank">
-                        <v-card class="pa-6" color="rgb(255, 255, 255, 0.1)">
-                            <v-row align="center" justify="center">
+            <div class="white--text text-center text-h2 my-12">Bienvenue Louis</div>
+            <v-row class="ma-12">
+                <v-col cols="12" md="4" v-for="(app, index) in apps" :key="index">
+                    <a :href="getAdress(app)">
+                        <v-card color="rgba(255,255,255,0.1)" class="my-4">
+                            <v-row>
                                 <!-- <v-col cols="4">
-                                    <v-img src="./assets/portainer.svg" contain height="50"> </v-img>
+                                    <img :src="app" />
                                 </v-col> -->
-                                <v-col>
-                                    <v-card-title class="white--text">Netdata</v-card-title>
-                                </v-col>
+                                <v-col cols="8">
+                                    <v-card-title class="white--text">
+                                        {{ app.nom }}
+                                    </v-card-title></v-col
+                                >
                             </v-row>
                         </v-card>
                     </a>
                 </v-col>
             </v-row>
-
-            <!-- <v-card class="mx-12 pa-12" color="rgb(255, 255, 255, 0)" flat>
-                <line-chart :chart-data="datacollection" :height="100" :options="options"></line-chart>
-            </v-card> -->
         </v-main>
     </v-app>
 </template>
 
 <script>
-import axios from "axios";
-import LineChart from "./LineChart.js";
-
 export default {
     name: "App",
 
@@ -71,32 +35,12 @@ export default {
     data() {
         return {
             piAdress: "192.168.1.37",
-            temperature: { time: [], temperature: [] },
-            options: {
-                legend: {
-                    labels: {
-                        fontColor: "white",
-                        fontSize: 18,
-                    },
-                },
-                scales: {
-                    yAxes: [
-                        {
-                            ticks: {
-                                // beginAtZero: true,
-                                fontColor: "white",
-                            },
-                        },
-                    ],
-                    xAxes: [
-                        {
-                            ticks: {
-                                fontColor: "white",
-                            },
-                        },
-                    ],
-                },
-            },
+            apps: [
+                { nom: "Portainer", img: "portainer.svg", extra: ":9000/#!/1/docker/containers", https: false },
+                { nom: "Nextcloud", img: "./assets/nextcloud.svg", extra: ":443", https: true },
+                { nom: "Netdata", img: "./assets/netdata.png", extra: ":19999/#menu_sensors", https: false },
+                { nom: "HomeAssistant", img: "./assets/homeassistant.png", extra: ":8123", https: false },
+            ],
         };
     },
 
@@ -119,11 +63,17 @@ export default {
         },
     },
 
-    mounted() {
-        // axios
-        //     .get("http://" + this.piAdress + ":3000/temperature")
-        //     .then((response) => (this.temperature = response.data))
-        //     .catch((error) => console.log(error));
+    methods: {
+        getAdress(app) {
+            if (app.https) {
+                return "https://" + this.piAdress + app.extra;
+            } else {
+                return "http://" + this.piAdress + app.extra;
+            }
+        },
+        getImg(app) {
+            return app.img;
+        },
     },
 };
 </script>
