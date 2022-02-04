@@ -105,7 +105,7 @@ export default {
 
     mounted() {
         axios
-            .get("http://" + this.piAdress + ":3000/temperature")
+            .get("https://" + this.piAdress + ":3000")
             .then((response) => (this.temperature = response.data))
             .catch((error) => console.log(error));
     },
