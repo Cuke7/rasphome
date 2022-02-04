@@ -33,6 +33,22 @@
                     </a>
                 </v-col>
             </v-row>
+            <v-row align="center" justify="center">
+                <v-col cols="4" class="ma-12">
+                    <a :href="'http://' + piAdress + ':19999'" target="_blank">
+                        <v-card class="pa-6" color="rgb(255, 255, 255, 0.1)">
+                            <v-row align="center" justify="center">
+                                <!-- <v-col cols="4">
+                                    <v-img src="./assets/portainer.svg" contain height="50"> </v-img>
+                                </v-col> -->
+                                <v-col>
+                                    <v-card-title class="white--text">Netdata</v-card-title>
+                                </v-col>
+                            </v-row>
+                        </v-card>
+                    </a>
+                </v-col>
+            </v-row>
 
             <!-- <v-card class="mx-12 pa-12" color="rgb(255, 255, 255, 0)" flat>
                 <line-chart :chart-data="datacollection" :height="100" :options="options"></line-chart>
