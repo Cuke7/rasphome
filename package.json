@@ -1,28 +1,26 @@
 {
-  "name": "rasphome",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "gh-pages-deploy": "node scripts/gh-pages-deploy.js"
-  },
-  "dependencies": {
-    "axios": "^0.25.0",
-    "chart.js": "^2.9.4",
-    "register-service-worker": "^1.7.1",
-    "vue": "^2.6.11",
-    "vue-chartjs": "^3.5.1",
-    "vuetify": "^2.4.0"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-pwa": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "execa": "latest",
-    "sass": "~1.32.0",
-    "sass-loader": "^10.0.0",
-    "vue-cli-plugin-vuetify": "~2.4.5",
-    "vue-template-compiler": "^2.6.11",
-    "vuetify-loader": "^1.7.0"
-  }
+    "name": "rasphome",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "gh-pages": "scripts/gh-pages"
+    },
+    "dependencies": {
+        "register-service-worker": "^1.7.1",
+        "vue": "^2.6.11",
+        "vue-chartjs": "^3.5.1",
+        "vuetify": "^2.4.0"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-pwa": "~4.5.0",
+        "@vue/cli-service": "~4.5.0",
+        "execa": "latest",
+        "sass": "~1.32.0",
+        "sass-loader": "^10.0.0",
+        "vue-cli-plugin-vuetify": "~2.4.5",
+        "vue-template-compiler": "^2.6.11",
+        "vuetify-loader": "^1.7.0"
+    }
 }

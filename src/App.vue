@@ -34,9 +34,9 @@
                 </v-col>
             </v-row>
 
-            <v-card class="mx-12 pa-12" color="rgb(255, 255, 255, 0)" flat>
+            <!-- <v-card class="mx-12 pa-12" color="rgb(255, 255, 255, 0)" flat>
                 <line-chart :chart-data="datacollection" :height="100" :options="options"></line-chart>
-            </v-card>
+            </v-card> -->
         </v-main>
     </v-app>
 </template>
@@ -48,9 +48,9 @@ import LineChart from "./LineChart.js";
 export default {
     name: "App",
 
-    components: {
-        LineChart,
-    },
+    // components: {
+    //     LineChart,
+    // },
 
     data() {
         return {
@@ -104,10 +104,10 @@ export default {
     },
 
     mounted() {
-        axios
-            .get("https://" + this.piAdress + ":3000")
-            .then((response) => (this.temperature = response.data))
-            .catch((error) => console.log(error));
+        // axios
+        //     .get("http://" + this.piAdress + ":3000/temperature")
+        //     .then((response) => (this.temperature = response.data))
+        //     .catch((error) => console.log(error));
     },
 };
 </script>
