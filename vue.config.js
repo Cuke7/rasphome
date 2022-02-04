@@ -1,5 +1,5 @@
 module.exports = {
-  // publicPath: '/rasphome/',
+  publicPath: '/rasphome/',
 
   transpileDependencies: [
     'vuetify'

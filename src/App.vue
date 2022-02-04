@@ -7,9 +7,9 @@
                     <a :href="getAdress(app)">
                         <v-card color="rgba(255,255,255,0.1)" class="my-4">
                             <v-row>
-                                <!-- <v-col cols="4">
-                                    <img :src="app" />
-                                </v-col> -->
+                                <v-col cols="4">
+                                    <v-img :src="app.img" />
+                                </v-col>
                                 <v-col cols="8">
                                     <v-card-title class="white--text">
                                         {{ app.nom }}
@@ -20,11 +20,19 @@
                     </a>
                 </v-col>
             </v-row>
+            <!-- <v-row>
+                <v-card class="mx-12 pa-12" color="rgb(255, 255, 255, 0)" flat>
+                    <line-chart :chart-data="datacollection" :height="100" :options="options"></line-chart>
+                </v-card>
+            </v-row> -->
         </v-main>
     </v-app>
 </template>
 
 <script>
+// import axios from "axios";
+// import LineChart from "LineChart";
+
 export default {
     name: "App",
 
@@ -36,31 +44,62 @@ export default {
         return {
             piAdress: "192.168.1.37",
             apps: [
-                { nom: "Portainer", img: "portainer.svg", extra: ":9000/#!/1/docker/containers", https: false },
+                { nom: "Portainer", img: "./portainer.svg", extra: ":9000/#!/1/docker/containers", https: false },
                 { nom: "Nextcloud", img: "./assets/nextcloud.svg", extra: ":443", https: true },
                 { nom: "Netdata", img: "./assets/netdata.png", extra: ":19999/#menu_sensors", https: false },
                 { nom: "HomeAssistant", img: "./assets/homeassistant.png", extra: ":8123", https: false },
             ],
+            // options: {
+            //     legend: {
+            //         labels: {
+            //             fontColor: "white",
+            //             fontSize: 18,
+            //         },
+            //     },
+            //     scales: {
+            //         yAxes: [
+            //             {
+            //                 ticks: {
+            //                     // beginAtZero: true,
+            //                     fontColor: "white",
+            //                 },
+            //             },
+            //         ],
+            //         xAxes: [
+            //             {
+            //                 ticks: {
+            //                     fontColor: "white",
+            //                 },
+            //             },
+            //         ],
+            //     },
+            // },
         };
     },
 
-    computed: {
-        datacollection() {
-            let labels = this.temperature.time;
-            let data = this.temperature.temperature;
+    // computed: {
+    //     datacollection() {
+    //         let labels = this.temperature.time;
+    //         let data = this.temperature.temperature;
+    //         return {
+    //             labels: labels,
+    //             datasets: [
+    //                 {
+    //                     label: "Température de la Raspberry",
+    //                     backgroundColor: "rgba(0, 0, 0, 0)",
+    //                     data: data,
+    //                     borderColor: "#ffffff",
+    //                 },
+    //             ],
+    //         };
+    //     },
+    // },
 
-            return {
-                labels: labels,
-                datasets: [
-                    {
-                        label: "Température de la Raspberry",
-                        backgroundColor: "rgba(0, 0, 0, 0)",
-                        data: data,
-                        borderColor: "#ffffff",
-                    },
-                ],
-            };
-        },
+    mounted() {
+        // axios
+        //     .get("https://" + this.piAdress + ":3000")
+        //     .then((response) => (this.temperature = response.data))
+        //     .catch((error) => console.log(error));
     },
 
     methods: {
