@@ -5,16 +5,16 @@
             <v-row class="ma-12">
                 <v-col cols="12" md="4" v-for="(app, index) in apps" :key="index">
                     <a :href="getAdress(app)">
-                        <v-card color="rgba(255,255,255,0.1)" class="my-4">
-                            <v-row>
-                                <v-col cols="4">
-                                    <v-img :src="app.img" />
+                        <v-card color="rgba(255,255,255,0.1)" class="my-4 pa-2">
+                            <v-row align="center" justify="center">
+                                <v-col cols="3">
+                                    <v-img :src="app.img" height="80" contain />
                                 </v-col>
-                                <v-col cols="8">
-                                    <v-card-title class="white--text">
+                                <v-col cols="auto">
+                                    <v-card-title class="white--text mx-0 px-0">
                                         {{ app.nom }}
-                                    </v-card-title></v-col
-                                >
+                                    </v-card-title>
+                                </v-col>
                             </v-row>
                         </v-card>
                     </a>
@@ -45,9 +45,9 @@ export default {
             piAdress: "192.168.1.37",
             apps: [
                 { nom: "Portainer", img: "./portainer.svg", extra: ":9000/#!/1/docker/containers", https: false },
-                { nom: "Nextcloud", img: "./assets/nextcloud.svg", extra: ":443", https: true },
-                { nom: "Netdata", img: "./assets/netdata.png", extra: ":19999/#menu_sensors", https: false },
-                { nom: "HomeAssistant", img: "./assets/homeassistant.png", extra: ":8123", https: false },
+                { nom: "Nextcloud", img: "./nextcloud.svg", extra: ":443", https: true },
+                { nom: "Netdata", img: "./netdata.png", extra: ":19999/#menu_sensors", https: false },
+                { nom: "HomeAssistant", img: "./homeassistant.png", extra: ":8123", https: false },
             ],
             // options: {
             //     legend: {
