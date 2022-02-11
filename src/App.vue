@@ -49,6 +49,7 @@ export default {
             apps: [
                 { nom: "Portainer", img: "./portainer.svg", extra: ":9000/#!/1/docker/containers", https: false },
                 { nom: "Nextcloud", img: "./nextcloud.svg", extra: ":443", https: true },
+                { nom: "Jellyfin", img: "./jellyfin.png", extra: ":8096", https: false },
             ],
             temperature: "",
             options: {
