@@ -45,11 +45,12 @@ export default {
 
     data() {
         return {
-            piAdress: "192.168.1.13",
+            piAdress: "raspberrypi",
             apps: [
                 { nom: "Portainer", img: "./portainer.svg", extra: ":9000/#!/1/docker/containers", https: false },
                 { nom: "Nextcloud", img: "./nextcloud.svg", extra: ":450", https: true },
                 { nom: "Jellyfin", img: "./jellyfin.png", extra: ":8096", https: false },
+                { nom: "Calibre", img: "./calibre.png", extra: ":8083", https: false },
             ],
             temperature: "",
             options: {
