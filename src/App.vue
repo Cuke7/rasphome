@@ -20,13 +20,13 @@
                     </a>
                 </v-col>
             </v-row>
-            <v-row justify="center" class="pa-0 ma-0">
+            <!-- <v-row justify="center" class="pa-0 ma-0">
                 <v-col cols="12" md="8">
                     <v-card class="pa-12" color="rgb(255, 255, 255, 0)" flat width="100%">
                         <line-chart :chart-data="datacollection" height="100" :options="options"></line-chart>
                     </v-card>
                 </v-col>
-            </v-row>
+            </v-row> -->
         </v-main>
     </v-app>
 </template>
@@ -45,7 +45,7 @@ export default {
 
     data() {
         return {
-            piAdress: "raspberrypi",
+            piAdress: "192.168.1.62",
             apps: [
                 { nom: "Portainer", img: "./portainer.svg", extra: ":9000/#!/1/docker/containers", https: false },
                 { nom: "Nextcloud", img: "./nextcloud.svg", extra: ":450", https: true },
